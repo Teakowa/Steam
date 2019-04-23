@@ -26,6 +26,11 @@ class BaseTester extends TestCase {
     protected function setUp(): void
     {
         parent::setUp();
+
+        // Load in ENV for tests
+        $dotenv = Dotenv\Dotenv::create(__DIR__, '../.env');
+        $dotenv->load();
+
         $this->steamClient = new Client();
     }
 
